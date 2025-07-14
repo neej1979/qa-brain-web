@@ -9,20 +9,18 @@
   gtag('config', 'G-XXXXXXXXXX');
 </script>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="QA Brain - The Cursor for QA">
-    <meta property="og:description" content="Turn stack traces into regression tests in seconds. Works with Claude, GPT-4, or local models.">
-    <meta property="og:image" content="https://qa-brain.com/og-image.png">
-    <meta property="og:url" content="https://qa-brain.com">
-    <meta name="twitter:card" content="summary_large_image">
-    <title>QA Brain - The Cursor for QA | AI-Powered Test Generation</title>
-    <meta name="description" content="Turn stack traces into regression tests in seconds. QA Brain works with Claude, GPT-4, or local models. The AI copilot that makes QA engineers 10x more productive.">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="QA Brain - The Cursor for QA" property="og:title"/>
+<meta content="Turn stack traces into regression tests in seconds. Works with Claude, GPT-4, or local models." property="og:description"/>
+<meta content="https://qa-brain.com/og-image.png" property="og:image"/>
+<meta content="https://qa-brain.com" property="og:url"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<title>QA Brain - The Cursor for QA | AI-Powered Test Generation</title>
+<meta content="Turn stack traces into regression tests in seconds. QA Brain works with Claude, GPT-4, or local models. The AI copilot that makes QA engineers 10x more productive." name="description"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
         :root {
             --primary: #6366f1;
             --primary-dark: #4f46e5;
@@ -182,11 +180,32 @@
             animation: fadeInUp 0.8s ease 0.2s both;
         }
 
+        .hero-form {
+            margin: 2rem 0;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .hero-form form {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-form input {
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--primary);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            width: 260px;
+            max-width: 90%;
+        }
+
         .hero-cta {
             display: flex;
             gap: 1rem;
             justify-content: center;
-            margin-bottom: 3rem;
+            margin: 2rem 0;
             animation: fadeInUp 0.8s ease 0.4s both;
         }
 
@@ -207,7 +226,8 @@
             border-radius: 1rem;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            margin: 2rem 0;
+            margin: 3rem auto 0;
+            max-width: 1000px;
             animation: fadeInUp 0.8s ease 0.6s both;
         }
 
@@ -404,6 +424,16 @@
             opacity: 0.9;
         }
 
+        .cta .btn-secondary {
+            border-color: white;
+            color: white;
+        }
+
+        .cta .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
         /* Footer */
         footer {
             background: var(--dark);
@@ -452,6 +482,19 @@
             .nav-links {
                 display: none;
             }
+
+            .hero-form input {
+                width: 100%;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-cta .btn {
+                width: 200px;
+            }
         }
 
         /* Animations */
@@ -468,51 +511,61 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <a href="#" class="logo">
+<!-- Header -->
+<header>
+<nav class="container">
+<a class="logo" href="#">
                 🧠 QA Brain
             </a>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#docs">Docs</a>
-                <a href="https://github.com/neej1979/qa-brain" target="_blank">GitHub</a>
-                <a href="#demo" class="btn btn-primary">Book Demo</a>
-            </div>
-        </nav>
-    </header>
+<div class="nav-links">
+<a href="#features">Features</a>
+<a href="#pricing">Pricing</a>
+<a href="#docs">Docs</a>
+<a href="https://github.com/neej1979/qa-brain" target="_blank">GitHub</a>
+<a class="btn btn-primary" href="#demo">Book Demo</a>
+</div>
+</nav>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>The Cursor for QA</h1>
-                <p class="subtitle">Turn stack traces into regression tests in 30 seconds</p>
-                <div class="hero-cta">
-                    <a href="#demo" class="btn btn-primary">Get Early Access</a>
-                    <a href="#watch-demo" class="btn btn-secondary">Watch Demo</a>
-                </div>
-                
-                <!-- Code Demo -->
-                <div class="code-demo">
-                    <div class="code-header">
-                        <div class="code-dot"></div>
-                        <div class="code-dot"></div>
-                        <div class="code-dot"></div>
-                    </div>
-                    <div class="code-content">
-                        <div class="code-section">
-                            <div class="code-label">❌ Your Stack Trace</div>
-                            <pre><code>TypeError: Cannot read property 'user' of undefined
+<!-- Hero Section -->
+<section class="hero">
+<div class="container">
+<div class="hero-content">
+<h1>The Cursor for QA</h1>
+<p class="subtitle">Turn stack traces into regression tests in 30 seconds</p>
+
+<!-- Email signup form -->
+<div class="hero-form">
+<form action="https://formspree.io/f/xzzvpvva" method="POST">
+<input name="email" placeholder="Your email" required type="email"/>
+<button class="btn btn-primary" type="submit">Join Waitlist</button>
+</form>
+</div>
+
+<!-- CTA buttons -->
+<div class="hero-cta">
+<a class="btn btn-primary" href="#demo">Get Early Access</a>
+<a class="btn btn-secondary" href="#watch-demo">Watch Demo</a>
+</div>
+
+<!-- Code Demo -->
+<div class="code-demo">
+<div class="code-header">
+<div class="code-dot"></div>
+<div class="code-dot"></div>
+<div class="code-dot"></div>
+</div>
+<div class="code-content">
+<div class="code-section">
+<div class="code-label">❌ Your Stack Trace</div>
+<pre><code>TypeError: Cannot read property 'user' of undefined
     at UserProfile.render (UserProfile.js:45:23)
     at finishClassComponent (react-dom.js:17485:31)
     at updateClassComponent (react-dom.js:17435:24)</code></pre>
-                        </div>
-                        <div class="code-section">
-                            <div class="code-label">✅ Generated Test</div>
-                            <pre><code>test('should handle undefined user data', async ({ page }) => {
+</div>
+<div class="code-section">
+<div class="code-label">✅ Generated Test</div>
+<pre><code>test('should handle undefined user data', async ({ page }) => {
   await page.goto('/profile');
   await page.waitForSelector('[data-testid="user-info"]');
   
@@ -521,274 +574,261 @@
   });
   expect(userDataLoaded).toBeTruthy();
 });</code></pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Value Props Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>⚡</h3>
-                    <p>Lightning Fast</p>
-                </div>
-                <div class="stat-item">
-                    <h3>🔒</h3>
-                    <p>100% Private</p>
-                </div>
-                <div class="stat-item">
-                    <h3>🧠</h3>
-                    <p>AI-Powered</p>
-                </div>
-                <div class="stat-item">
-                    <h3>🎯</h3>
-                    <p>Patent Pending</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Value Props Section -->
+<section class="stats">
+<div class="container">
+<div class="stats-grid">
+<div class="stat-item">
+<h3>⚡</h3>
+<p>Lightning Fast</p>
+</div>
+<div class="stat-item">
+<h3>🔒</h3>
+<p>100% Private</p>
+</div>
+<div class="stat-item">
+<h3>🧠</h3>
+<p>AI-Powered</p>
+</div>
+<div class="stat-item">
+<h3>🎯</h3>
+<p>Patent Pending</p>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Enterprise-Ready Features</h2>
-            <p style="text-align: center; color: var(--gray); font-size: 1.25rem;">Everything you need to 10x your QA productivity</p>
-            
-            <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Enhanced Replay™</h3>
-                    <p>Our patent-pending technology converts production errors into comprehensive test suites automatically.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🧠</div>
-                    <h3>AI Memory</h3>
-                    <p>QA Brain learns from every test, building a knowledge base of your application's patterns.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Your Choice, Your Control</h3>
-                    <p>Use Claude, GPT-4, or run 100% local with Llama. Deploy on-premise or in your cloud. Your code, your rules.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Multi-Model Architecture</h3>
-                    <p>Choose the best model for each task. Use GPT-4 for complex reasoning, Claude for code generation, or local models for sensitive data.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🔧</div>
-                    <h3>Self-Healing</h3>
-                    <p>Tests automatically adapt to UI changes, reducing maintenance overhead.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">📊</div>
-                    <h3>Analytics</h3>
-                    <p>Track test generation metrics, success rates, and team productivity gains.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Features Section -->
+<section class="features" id="features">
+<div class="container">
+<h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Enterprise-Ready Features</h2>
+<p style="text-align: center; color: var(--gray); font-size: 1.25rem;">Everything you need to 10x your QA productivity</p>
+<div class="features-grid">
+<div class="feature-card fade-in">
+<div class="feature-icon">🎯</div>
+<h3>Enhanced Replay™</h3>
+<p>Our patent-pending technology converts production errors into comprehensive test suites automatically.</p>
+</div>
+<div class="feature-card fade-in">
+<div class="feature-icon">🧠</div>
+<h3>AI Memory</h3>
+<p>QA Brain learns from every test, building a knowledge base of your application's patterns.</p>
+</div>
+<div class="feature-card fade-in">
+<div class="feature-icon">🔒</div>
+<h3>Your Choice, Your Control</h3>
+<p>Use Claude, GPT-4, or run 100% local with Llama. Deploy on-premise or in your cloud. Your code, your rules.</p>
+</div>
+<div class="feature-card fade-in">
+<div class="feature-icon">⚡</div>
+<h3>Multi-Model Architecture</h3>
+<p>Choose the best model for each task. Use GPT-4 for complex reasoning, Claude for code generation, or local models for sensitive data.</p>
+</div>
+<div class="feature-card fade-in">
+<div class="feature-icon">🔧</div>
+<h3>Self-Healing</h3>
+<p>Tests automatically adapt to UI changes, reducing maintenance overhead.</p>
+</div>
+<div class="feature-card fade-in">
+<div class="feature-icon">📊</div>
+<h3>Analytics</h3>
+<p>Track test generation metrics, success rates, and team productivity gains.</p>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Deployment Flexibility Section -->
-    <section class="features" style="background: var(--light-gray);">
-        <div class="container">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Deploy Your Way</h2>
-            <p style="text-align: center; color: var(--gray); font-size: 1.25rem; margin-bottom: 3rem;">Maximum flexibility for your infrastructure and compliance needs</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                <div style="text-align: center;">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">☁️ Cloud Providers</h3>
-                    <ul style="list-style: none; padding: 0; color: var(--gray);">
-                        <li>AWS / Azure / GCP</li>
-                        <li>Your private cloud</li>
-                        <li>On-premise servers</li>
-                        <li>Hybrid deployments</li>
-                    </ul>
-                </div>
-                
-                <div style="text-align: center;">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">🤖 AI Models</h3>
-                    <ul style="list-style: none; padding: 0; color: var(--gray);">
-                        <li>OpenAI GPT-4</li>
-                        <li>Anthropic Claude</li>
-                        <li>Local Llama 2/3</li>
-                        <li>Custom fine-tuned</li>
-                    </ul>
-                </div>
-                
-                <div style="text-align: center;">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">🔧 Integrations</h3>
-                    <ul style="list-style: none; padding: 0; color: var(--gray);">
-                        <li>VS Code / Cursor</li>
-                        <li>CI/CD pipelines</li>
-                        <li>Jira / Linear</li>
-                        <li>GitHub / GitLab</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Deployment Flexibility Section -->
+<section class="features" style="background: var(--light-gray);">
+<div class="container">
+<h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Deploy Your Way</h2>
+<p style="text-align: center; color: var(--gray); font-size: 1.25rem; margin-bottom: 3rem;">Maximum flexibility for your infrastructure and compliance needs</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+<div style="text-align: center;">
+<h3 style="font-size: 1.5rem; margin-bottom: 1rem;">☁️ Cloud Providers</h3>
+<ul style="list-style: none; padding: 0; color: var(--gray);">
+<li>AWS / Azure / GCP</li>
+<li>Your private cloud</li>
+<li>On-premise servers</li>
+<li>Hybrid deployments</li>
+</ul>
+</div>
+<div style="text-align: center;">
+<h3 style="font-size: 1.5rem; margin-bottom: 1rem;">🤖 AI Models</h3>
+<ul style="list-style: none; padding: 0; color: var(--gray);">
+<li>OpenAI GPT-4</li>
+<li>Anthropic Claude</li>
+<li>Local Llama 2/3</li>
+<li>Custom fine-tuned</li>
+</ul>
+</div>
+<div style="text-align: center;">
+<h3 style="font-size: 1.5rem; margin-bottom: 1rem;">🔧 Integrations</h3>
+<ul style="list-style: none; padding: 0; color: var(--gray);">
+<li>VS Code / Cursor</li>
+<li>CI/CD pipelines</li>
+<li>Jira / Linear</li>
+<li>GitHub / GitLab</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Comparison Table Section -->
-    <section class="features">
-        <div class="container">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Why QA Brain?</h2>
-            <p style="text-align: center; color: var(--gray); font-size: 1.25rem; margin-bottom: 3rem;">See how we stack up against the alternatives</p>
-            
-            <div style="overflow-x: auto;">
-                <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                    <thead>
-                        <tr style="background: var(--gradient); color: white;">
-                            <th style="padding: 1.5rem; text-align: left; font-weight: 600;">Feature</th>
-                            <th style="padding: 1.5rem; text-align: center; font-weight: 600;">QA Brain</th>
-                            <th style="padding: 1.5rem; text-align: center; font-weight: 600;">Manual Testing</th>
-                            <th style="padding: 1.5rem; text-align: center; font-weight: 600;">Other AI Tools</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-bottom: 1px solid var(--light-gray);">
-                            <td style="padding: 1.5rem; font-weight: 500;">Stack trace → Test</td>
-                            <td style="padding: 1.5rem; text-align: center;">✅ 30 seconds</td>
-                            <td style="padding: 1.5rem; text-align: center;">❌ 3-4 hours</td>
-                            <td style="padding: 1.5rem; text-align: center;">⚠️ Limited</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--light-gray); background: #f9fafb;">
-                            <td style="padding: 1.5rem; font-weight: 500;">Model flexibility</td>
-                            <td style="padding: 1.5rem; text-align: center;">✅ Any model</td>
-                            <td style="padding: 1.5rem; text-align: center;">❌ N/A</td>
-                            <td style="padding: 1.5rem; text-align: center;">❌ Locked in</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--light-gray);">
-                            <td style="padding: 1.5rem; font-weight: 500;">On-premise option</td>
-                            <td style="padding: 1.5rem; text-align: center;">✅ Full support</td>
-                            <td style="padding: 1.5rem; text-align: center;">✅ Yes</td>
-                            <td style="padding: 1.5rem; text-align: center;">❌ Cloud only</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--light-gray); background: #f9fafb;">
-                            <td style="padding: 1.5rem; font-weight: 500;">Learning system</td>
-                            <td style="padding: 1.5rem; text-align: center;">✅ Pattern memory</td>
-                            <td style="padding: 1.5rem; text-align: center;">❌ Manual</td>
-                            <td style="padding: 1.5rem; text-align: center;">❌ No memory</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--light-gray);">
-                            <td style="padding: 1.5rem; font-weight: 500;">IDE integration</td>
-                            <td style="padding: 1.5rem; text-align: center;">✅ VS Code/Cursor</td>
-                            <td style="padding: 1.5rem; text-align: center;">⚠️ Basic</td>
-                            <td style="padding: 1.5rem; text-align: center;">⚠️ Limited</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 1.5rem; font-weight: 500;">Cost per test</td>
-                            <td style="padding: 1.5rem; text-align: center;">✅ ~$0.10</td>
-                            <td style="padding: 1.5rem; text-align: center;">❌ ~$50</td>
-                            <td style="padding: 1.5rem; text-align: center;">⚠️ ~$5</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
+<!-- Comparison Table Section -->
+<section class="features">
+<div class="container">
+<h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Why QA Brain?</h2>
+<p style="text-align: center; color: var(--gray); font-size: 1.25rem; margin-bottom: 3rem;">See how we stack up against the alternatives</p>
+<div style="overflow-x: auto;">
+<table style="width: 100%; border-collapse: collapse; background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+<thead>
+<tr style="background: var(--gradient); color: white;">
+<th style="padding: 1.5rem; text-align: left; font-weight: 600;">Feature</th>
+<th style="padding: 1.5rem; text-align: center; font-weight: 600;">QA Brain</th>
+<th style="padding: 1.5rem; text-align: center; font-weight: 600;">Manual Testing</th>
+<th style="padding: 1.5rem; text-align: center; font-weight: 600;">Other AI Tools</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom: 1px solid var(--light-gray);">
+<td style="padding: 1.5rem; font-weight: 500;">Stack trace → Test</td>
+<td style="padding: 1.5rem; text-align: center;">✅ 30 seconds</td>
+<td style="padding: 1.5rem; text-align: center;">❌ 3-4 hours</td>
+<td style="padding: 1.5rem; text-align: center;">⚠️ Limited</td>
+</tr>
+<tr style="border-bottom: 1px solid var(--light-gray); background: #f9fafb;">
+<td style="padding: 1.5rem; font-weight: 500;">Model flexibility</td>
+<td style="padding: 1.5rem; text-align: center;">✅ Any model</td>
+<td style="padding: 1.5rem; text-align: center;">❌ N/A</td>
+<td style="padding: 1.5rem; text-align: center;">❌ Locked in</td>
+</tr>
+<tr style="border-bottom: 1px solid var(--light-gray);">
+<td style="padding: 1.5rem; font-weight: 500;">On-premise option</td>
+<td style="padding: 1.5rem; text-align: center;">✅ Full support</td>
+<td style="padding: 1.5rem; text-align: center;">✅ Yes</td>
+<td style="padding: 1.5rem; text-align: center;">❌ Cloud only</td>
+</tr>
+<tr style="border-bottom: 1px solid var(--light-gray); background: #f9fafb;">
+<td style="padding: 1.5rem; font-weight: 500;">Learning system</td>
+<td style="padding: 1.5rem; text-align: center;">✅ Pattern memory</td>
+<td style="padding: 1.5rem; text-align: center;">❌ Manual</td>
+<td style="padding: 1.5rem; text-align: center;">❌ No memory</td>
+</tr>
+<tr style="border-bottom: 1px solid var(--light-gray);">
+<td style="padding: 1.5rem; font-weight: 500;">IDE integration</td>
+<td style="padding: 1.5rem; text-align: center;">✅ VS Code/Cursor</td>
+<td style="padding: 1.5rem; text-align: center;">⚠️ Basic</td>
+<td style="padding: 1.5rem; text-align: center;">⚠️ Limited</td>
+</tr>
+<tr>
+<td style="padding: 1.5rem; font-weight: 500;">Cost per test</td>
+<td style="padding: 1.5rem; text-align: center;">✅ ~$0.10</td>
+<td style="padding: 1.5rem; text-align: center;">❌ ~$50</td>
+<td style="padding: 1.5rem; text-align: center;">⚠️ ~$5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
 
-    <!-- Security Badges Section -->
-    <section class="features" style="background: var(--light-gray); padding: 3rem 0;">
-        <div class="container">
-            <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 2rem; color: var(--gray);">Enterprise-Ready Security & Compliance</h3>
-            <div style="display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap;">
-                <div style="text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔒</div>
-                    <p style="font-weight: 600; margin: 0;">SOC2 Ready</p>
-                    <p style="font-size: 0.875rem; color: var(--gray); margin: 0;">Architecture</p>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🛡️</div>
-                    <p style="font-weight: 600; margin: 0;">GDPR</p>
-                    <p style="font-size: 0.875rem; color: var(--gray); margin: 0;">Compliant</p>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔐</div>
-                    <p style="font-weight: 600; margin: 0;">Zero Trust</p>
-                    <p style="font-size: 0.875rem; color: var(--gray); margin: 0;">Security</p>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🏛️</div>
-                    <p style="font-weight: 600; margin: 0;">Air Gap</p>
-                    <p style="font-size: 0.875rem; color: var(--gray); margin: 0;">Deployable</p>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔑</div>
-                    <p style="font-weight: 600; margin: 0;">SSO/SAML</p>
-                    <p style="font-size: 0.875rem; color: var(--gray); margin: 0;">Support</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Security Badges Section -->
+<section class="features" style="background: var(--light-gray); padding: 3rem 0;">
+<div class="container">
+<h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 2rem; color: var(--gray);">Enterprise-Ready Security & Compliance</h3>
+<div style="display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap;">
+<div style="text-align: center;">
+<div style="font-size: 3rem; margin-bottom: 0.5rem;">🔒</div>
+<p style="font-weight: 600; margin: 0;">SOC2 Ready</p>
+<p style="font-size: 0.875rem; color: var(--gray); margin: 0;">Architecture</p>
+</div>
+<div style="text-align: center;">
+<div style="font-size: 3rem; margin-bottom: 0.5rem;">🛡️</div>
+<p style="font-weight: 600; margin: 0;">GDPR</p>
+<p style="font-size: 0.875rem; color: var(--gray); margin: 0;">Compliant</p>
+</div>
+<div style="text-align: center;">
+<div style="font-size: 3rem; margin-bottom: 0.5rem;">🔐</div>
+<p style="font-weight: 600; margin: 0;">Zero Trust</p>
+<p style="font-size: 0.875rem; color: var(--gray); margin: 0;">Security</p>
+</div>
+<div style="text-align: center;">
+<div style="font-size: 3rem; margin-bottom: 0.5rem;">🏛️</div>
+<p style="font-weight: 600; margin: 0;">Air Gap</p>
+<p style="font-size: 0.875rem; color: var(--gray); margin: 0;">Deployable</p>
+</div>
+<div style="text-align: center;">
+<div style="font-size: 3rem; margin-bottom: 0.5rem;">🔑</div>
+<p style="font-weight: 600; margin: 0;">SSO/SAML</p>
+<p style="font-size: 0.875rem; color: var(--gray); margin: 0;">Support</p>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- ROI Calculator -->
-    <section class="roi-section">
-        <div class="container">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Calculate Your ROI</h2>
-            <p style="text-align: center; color: var(--gray); font-size: 1.25rem;">See how much QA Brain can save your team</p>
-            
-            <div class="roi-calculator">
-                <div class="roi-input">
-                    <label for="qa-count">Number of QA Engineers</label>
-                    <input type="number" id="qa-count" value="5" min="1" max="100">
-                </div>
-                
-                <div class="roi-input">
-                    <label for="avg-salary">Average QA Salary ($)</label>
-                    <input type="number" id="avg-salary" value="120000" min="50000" max="300000">
-                </div>
-                
-                <div class="roi-input">
-                    <label for="tests-month">Tests Written Per Month</label>
-                    <input type="number" id="tests-month" value="200" min="10" max="1000">
-                </div>
-                
-                <div class="roi-result">
-                    <h3 id="monthly-savings">$4,615</h3>
-                    <p>Monthly Savings</p>
-                    <h3 id="annual-roi" style="font-size: 3rem; margin-top: 1rem;">$55,385</h3>
-                    <p>Annual ROI</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ROI Calculator -->
+<section class="roi-section">
+<div class="container">
+<h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Calculate Your ROI</h2>
+<p style="text-align: center; color: var(--gray); font-size: 1.25rem;">See how much QA Brain can save your team</p>
+<div class="roi-calculator">
+<div class="roi-input">
+<label for="qa-count">Number of QA Engineers</label>
+<input id="qa-count" max="100" min="1" type="number" value="5"/>
+</div>
+<div class="roi-input">
+<label for="avg-salary">Average QA Salary ($)</label>
+<input id="avg-salary" max="300000" min="50000" type="number" value="120000"/>
+</div>
+<div class="roi-input">
+<label for="tests-month">Tests Written Per Month</label>
+<input id="tests-month" max="1000" min="10" type="number" value="200"/>
+</div>
+<div class="roi-result">
+<h3 id="monthly-savings">$4,615</h3>
+<p>Monthly Savings</p>
+<h3 id="annual-roi" style="font-size: 3rem; margin-top: 1rem;">$55,385</h3>
+<p>Annual ROI</p>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- CTA Section -->
-    <section class="cta" id="demo">
-        <div class="container">
-            <h2>Ready to Transform Your QA?</h2>
-            <p>Be among the first to experience the future of test automation</p>
-            <div class="hero-cta">
-                <a href="https://calendly.com/qa-brain" class="btn btn-secondary" style="background: white; color: var(--primary);">Book a Demo</a>
-                <a href="mailto:neil@qa-brain.com" class="btn btn-secondary">Contact Sales</a>
-            </div>
-        </div>
-    </section>
+<!-- CTA Section -->
+<section class="cta" id="demo">
+<div class="container">
+<h2>Ready to Transform Your QA?</h2>
+<p>Be among the first to experience the future of test automation</p>
+<div class="hero-cta">
+<a class="btn btn-secondary" href="https://calendly.com/qa-brain" style="background: white; color: var(--primary);">Book a Demo</a>
+<a class="btn btn-secondary" href="mailto:neil@qa-brain.com" style="background: transparent; color: white; border-color: white;">Contact Sales</a>
+</div>
+</div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="https://github.com/neej1979/qa-brain">GitHub</a>
-                <a href="mailto:neil@qa-brain.com">Contact</a>
-            </div>
-            <p>&copy; 2025 QA Brain. Patent Pending. All rights reserved.</p>
-        </div>
-    </footer>
+<!-- Footer -->
+<footer>
+<div class="container">
+<div class="footer-links">
+<a href="#">Privacy</a>
+<a href="#">Terms</a>
+<a href="https://github.com/neej1979/qa-brain">GitHub</a>
+<a href="https://x.com/qabrainAI">X (Twitter)</a>
+<a href="mailto:neil@qa-brain.com">Contact</a>
+</div>
+<p>© 2025 QA Brain. Patent Pending. All rights reserved.</p>
+</div>
+</footer>
 
-    <script>
+<script>
         // ROI Calculator
         function calculateROI() {
             const qaCount = parseInt(document.getElementById('qa-count').value);
@@ -799,11 +839,18 @@
             const timeSaved = 0.8; // 80% faster
             const hoursPerYear = 2080;
             
-            const monthlySavings = (testsMonth * hoursPerTest * timeSaved) * (avgSalary / hoursPerYear);
+            // Calculate hourly rate based on average salary
+            const hourlyRate = avgSalary / hoursPerYear;
+            
+            // Calculate hours saved per month across entire team
+            const hoursSavedPerMonth = (testsMonth * hoursPerTest * timeSaved) * qaCount;
+            
+            // Calculate monthly and annual savings
+            const monthlySavings = hoursSavedPerMonth * hourlyRate;
             const annualROI = monthlySavings * 12;
             
-            document.getElementById('monthly-savings').textContent = `$${monthlySavings.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
-            document.getElementById('annual-roi').textContent = `$${annualROI.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            document.getElementById('monthly-savings').textContent = `${monthlySavings.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            document.getElementById('annual-roi').textContent = `${annualROI.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
         }
         
         // Add event listeners
