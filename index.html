@@ -1,48 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="QA Brain - The Cursor for QA" property="og:title"/>
-<meta content="Turn stack traces into regression tests in seconds. Works with Claude, GPT-4, or local models." property="og:description"/>
-<meta content="https://qa-brain.com/og-image.png" property="og:image"/>
-<meta content="https://qa-brain.com" property="og:url"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<title>QA Brain - The Cursor for QA | AI-Powered Test Generation</title>
-<meta content="Turn stack traces into regression tests in seconds. QA Brain works with Claude, GPT-4, or local models. The AI copilot that makes QA engineers 10x more productive." name="description"/>
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<style>
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #10b981;
-            --dark: #0f172a;
-            --gray: #64748b;
-            --light-gray: #f1f5f9;
-            --white: #ffffff;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --code-bg: #1e293b;
-        }
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA Brain - The First Self-Improving Test Automation Platform</title>
+    <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #0066FF;
+            --primary-dark: #0052CC;
+            --success: #00C853;
+            --dark: #0A0E27;
+            --dark-lighter: #151932;
+            --gray: #6B7280;
+            --gray-light: #9CA3AF;
+            --white: #FFFFFF;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-blue: linear-gradient(135deg, #0066FF 0%, #00C6FF 100%);
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--dark);
+            color: var(--white);
             line-height: 1.6;
-            color: var(--dark);
             overflow-x: hidden;
         }
 
@@ -52,439 +38,549 @@
             padding: 0 20px;
         }
 
-        /* Header */
-        header {
+        /* Navigation */
+        nav {
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             z-index: 1000;
-            transition: all 0.3s ease;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        nav {
+        nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-size: 24px;
+            font-weight: bold;
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 30px;
             align-items: center;
         }
 
         .nav-links a {
-            color: var(--dark);
+            color: var(--gray-light);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--white);
         }
 
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
             border: none;
-            font-size: 1rem;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--dark);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: var(--gray-light);
+            text-decoration: none;
+            padding: 10px;
+            transition: color 0.3s;
         }
 
         .btn-primary {
             background: var(--primary);
-            color: white;
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            font-weight: 600;
+            text-align: center;
         }
 
         .btn-primary:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
+            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.3);
         }
 
         /* Hero Section */
         .hero {
-            padding: 8rem 0 4rem;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 140px 0 100px;
+            text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
-            animation: pulse 20s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.1) rotate(180deg); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 102, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            background: var(--gradient);
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 800;
+            margin-bottom: 24px;
+            background: linear-gradient(to right, #fff 20%, #0066FF 50%, #00C6FF 80%, #fff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: fadeInUp 0.8s ease;
+            animation: shimmer 3s linear infinite;
+            background-size: 200% 100%;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -100% 0; }
+            100% { background-position: 100% 0; }
         }
 
         .hero .subtitle {
-            font-size: 1.5rem;
-            color: var(--gray);
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-
-        .hero-form {
-            margin: 2rem 0;
-            animation: fadeInUp 0.8s ease 0.3s both;
-        }
-
-        .hero-form form {
-            display: flex;
-            gap: 0.75rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .hero-form input {
-            padding: 0.75rem 1rem;
-            border: 2px solid var(--primary);
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            width: 260px;
-            max-width: 90%;
+            font-size: clamp(18px, 3vw, 24px);
+            color: var(--gray-light);
+            margin-bottom: 40px;
+            font-weight: 300;
+            padding: 0 20px;
         }
 
         .hero-cta {
             display: flex;
-            gap: 1rem;
+            gap: 20px;
             justify-content: center;
-            margin: 2rem 0;
-            animation: fadeInUp 0.8s ease 0.4s both;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            padding: 0 20px;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 10px 24px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            font-weight: 600;
         }
 
-        /* Code Demo */
-        .code-demo {
-            background: var(--white);
-            border-radius: 1rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin: 3rem auto 0;
-            max-width: 1000px;
-            animation: fadeInUp 0.8s ease 0.6s both;
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            background: rgba(0, 102, 255, 0.1);
         }
 
-        .code-header {
-            background: var(--code-bg);
-            padding: 1rem;
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 10px;
+            color: var(--gray-light);
+            min-width: 200px;
         }
 
-        .code-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #ef4444;
+        .badge-icon {
+            font-size: 24px;
         }
 
-        .code-dot:nth-child(2) { background: #eab308; }
-        .code-dot:nth-child(3) { background: #22c55e; }
+        /* Patent Banner */
+        .patent-banner {
+            background: linear-gradient(90deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 198, 255, 0.1) 100%);
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            border-radius: 12px;
+            gap: 40px;
+            padding: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            flex-wrap: wrap;
 
-        .code-content {
+        }
+
+        .patent-banner h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* Problem/Solution Section */
+        .problem-solution {
+            padding: 80px 0;
+            background: var(--dark-lighter);
+        }
+
+        .comparison-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
         }
 
-        .code-section {
-            padding: 2rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            background: var(--code-bg);
-            color: #e2e8f0;
-            overflow-x: auto;
+        .comparison-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .code-section:first-child {
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        .comparison-card h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
         }
 
-        .code-label {
-            font-size: 0.75rem;
-            color: var(--secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
+        .problem-card h3 {
+            color: #FF4444;
         }
 
-        /* Features */
+        .solution-card h3 {
+            color: var(--success);
+        }
+
+        .comparison-item {
+            display: flex;
+            align-items: start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .comparison-item .icon {
+            font-size: 20px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        /* Learning Loop Section */
+        .learning-loop {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .loop-diagram {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 102, 255, 0.2);
+        }
+
+        .loop-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .loop-step {
+            flex: 1;
+            min-width: 120px;
+            padding: 20px;
+            background: var(--dark);
+            border-radius: 12px;
+            border: 2px solid rgba(0, 102, 255, 0.3);
+            position: relative;
+        }
+
+        .loop-step::after {
+            content: '→';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .loop-step:last-child::after {
+            display: none;
+        }
+
+        .loop-step h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .loop-step p {
+            font-size: 14px;
+            color: var(--gray-light);
+        }
+
+        /* Features Section */
         .features {
-            padding: 4rem 0;
-            background: var(--white);
+            padding: 80px 0;
+            background: var(--dark-lighter);
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .feature-card {
-            background: var(--light-gray);
-            padding: 2rem;
-            border-radius: 1rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient);
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            min-height: 280px;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-card:hover::before {
-            transform: translateX(0);
+            border-color: var(--primary);
+            background: rgba(0, 102, 255, 0.05);
         }
 
         .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 32px;
+            margin-bottom: 16px;
         }
 
         .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
+            margin-bottom: 12px;
+            font-size: 20px;
         }
 
-        /* Stats */
-        .stats {
-            padding: 4rem 0;
-            background: var(--code-bg);
-            color: white;
+        .feature-card p {
+            flex: 1;
+            margin-bottom: 12px;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+        .patent-tag {
+            display: inline-block;
+            background: rgba(0, 102, 255, 0.2);
+            color: var(--primary);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-top: auto;
+        }
+
+        /* Enterprise Section */
+        .enterprise {
+            padding: 80px 0;
             text-align: center;
         }
 
-        .stat-item h3 {
-            font-size: 3rem;
-            font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .security-item {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .security-item h4 {
+            color: var(--success);
+            margin-bottom: 8px;
         }
 
         /* ROI Calculator */
-        .roi-section {
-            padding: 4rem 0;
-            background: var(--light-gray);
-        }
-
         .roi-calculator {
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 80px 0;
+            background: var(--dark-lighter);
+        }
+
+        .calculator-box {
             max-width: 600px;
-            margin: 2rem auto;
+            margin: 40px auto;
+            padding: 40px 20px;
+            background: var(--dark);
+            border-radius: 16px;
+            border: 2px solid rgba(0, 102, 255, 0.3);
         }
 
-        .roi-input {
-            margin-bottom: 1.5rem;
+        .calc-input {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .roi-input label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
+        .calc-input label {
+            color: var(--gray-light);
+            flex: 1;
+            min-width: 200px;
         }
 
-        .roi-input input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid var(--light-gray);
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
+        .calc-input input {
+            width: 100px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: var(--white);
+            text-align: right;
         }
 
-        .roi-input input:focus {
-            outline: none;
-            border-color: var(--primary);
+        .calc-result {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .roi-result {
-            background: var(--gradient);
-            color: white;
-            padding: 2rem;
-            border-radius: 0.5rem;
+        .calc-total {
+            font-size: clamp(24px, 4vw, 32px);
+            color: var(--success);
+            font-weight: bold;
             text-align: center;
-            margin-top: 2rem;
-        }
-
-        .roi-result h3 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            margin-top: 20px;
         }
 
         /* CTA Section */
-        .cta {
-            padding: 4rem 0;
-            background: var(--gradient);
-            color: white;
+        .cta-section {
+            padding: 100px 0;
             text-align: center;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 198, 255, 0.1) 100%);
         }
 
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .cta-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .cta p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+        .cta-card {
+            background: var(--dark);
+            border-radius: 12px;
+            padding: 40px;
+            border: 2px solid rgba(0, 102, 255, 0.3);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            min-height: 240px;
         }
 
-        .cta .btn-secondary {
-            border-color: white;
-            color: white;
+        .cta-card h3 {
+            margin-bottom: 20px;
         }
 
-        .cta .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
+        .cta-card p {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        .cta-card .btn-primary {
+            width: 100%;
+            margin-top: auto;
         }
 
         /* Footer */
         footer {
-            background: var(--dark);
-            color: white;
-            padding: 2rem 0;
+            padding: 40px 20px;
             text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .footer-links {
+        .footer-badges {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
+            gap: 30px;
+            margin-bottom: 20px;
+            color: var(--gray-light);
+            flex-wrap: wrap;
         }
 
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 20px;
         }
 
-        .footer-links a:hover {
-            opacity: 1;
+        .section-header h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            margin-bottom: 16px;
+            font-weight: 800;
         }
 
-        /* Mobile */
+        .section-header p {
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: var(--gray-light);
+        }
+
+        /* Mobile Responsive Styles */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero .subtitle {
-                font-size: 1.25rem;
-            }
-            
-            .code-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .code-section:first-child {
-                border-right: none;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            
+            /* Navigation */
             .nav-links {
                 display: none;
             }
 
-            .hero-form input {
-                width: 100%;
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            /* Features Grid - Stack on mobile */
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* CTA Buttons - Stack on mobile */
+            .cta-buttons {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            /* Hero */
+            .hero {
+                padding: 100px 0 60px;
             }
 
             .hero-cta {
@@ -492,414 +588,483 @@
                 align-items: center;
             }
 
-            .hero-cta .btn {
-                width: 200px;
+            .hero-cta a {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            /* Trust badges */
+            .trust-badges {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .badge {
+                justify-content: center;
+                text-align: left;
+            }
+
+            /* Learning Loop */
+            .loop-steps {
+                flex-direction: column;
+            }
+
+            .loop-step::after {
+                content: '↓';
+                right: 50%;
+                bottom: -20px;
+                top: auto;
+                transform: translateX(50%);
+            }
+
+            .loop-step:last-child::after {
+                display: none;
+            }
+
+            /* Sections padding */
+            .problem-solution,
+            .learning-loop,
+            .features,
+            .enterprise,
+            .roi-calculator,
+            .cta-section {
+                padding: 60px 0;
+            }
+
+            /* CTA */
+            .cta-section {
+                padding: 60px 20px;
+            }
+
+            /* Calculator */
+            .calculator-box {
+                padding: 30px 15px;
+            }
+
+            .calc-input {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .calc-input input {
+                width: 100%;
             }
         }
 
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
+        @media (max-width: 992px) {
+            /* Features Grid - 2 columns on tablet */
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .security-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .patent-banner {
+                margin: 30px 0;
+                padding: 15px;
+            }
+
+            .footer-badges {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Additional mobile optimizations */
+        @media (hover: none) {
+            .feature-card:hover {
+                transform: none;
+            }
+
+            .btn-primary:hover {
+                transform: none;
+            }
         }
     </style>
 </head>
 <body>
-<!-- Header -->
-<header>
-<nav class="container">
-<a class="logo" href="#">
-                🧠 QA Brain
-            </a>
-<div class="nav-links">
-<a href="#features">Features</a>
-<a href="#pricing">Pricing</a>
-<a href="#docs">Docs</a>
-<a href="https://github.com/neej1979/qa-brain" target="_blank">GitHub</a>
-<a class="btn btn-primary" href="#demo">Book Demo</a>
-</div>
-</nav>
-</header>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">QA Brain</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#patents">Patents</a>
+                <a href="#enterprise">Enterprise</a>
+                <a href="#roi">ROI Calculator</a>
+                <a href="#demo" class="btn-primary">Book Demo</a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
 
-<!-- Hero Section -->
-<section class="hero">
-<div class="container">
-<div class="hero-content">
-<h1>The Cursor for QA</h1>
-<p class="subtitle">Turn stack traces into regression tests in 30 seconds</p>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#features" onclick="toggleMobileMenu()">Features</a>
+        <a href="#patents" onclick="toggleMobileMenu()">Patents</a>
+        <a href="#enterprise" onclick="toggleMobileMenu()">Enterprise</a>
+        <a href="#roi" onclick="toggleMobileMenu()">ROI Calculator</a>
+        <a href="#demo" class="btn-primary" onclick="toggleMobileMenu()">Book Demo</a>
+    </div>
 
-<!-- Email signup form -->
-<div class="hero-form">
-<form action="https://formspree.io/f/xzzvpvva" method="POST">
-<input name="email" placeholder="Your email" required type="email"/>
-<button class="btn btn-primary" type="submit">Join Waitlist</button>
-</form>
-</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>The First Self-Improving Test Automation Platform</h1>
+            <p class="subtitle">Tests that learn from every run. Patterns that spread across your team.<br>Intelligence that compounds over time.</p>
+            
+            <div class="hero-cta">
+                <a href="#demo" class="btn-primary">Watch 2-Min Demo</a>
+                <a href="#enterprise" class="btn-secondary">Book Enterprise Demo</a>
+            </div>
 
-<!-- CTA buttons -->
-<div class="hero-cta">
-<a class="btn btn-primary" href="#demo">Get Early Access</a>
-<a class="btn btn-secondary" href="#watch-demo">Watch Demo</a>
-</div>
+            <div class="trust-badges">
+                <div class="badge">
+                    <span class="badge-icon">🔐</span>
+                    <div>
+                        <strong>8 Patents Filed</strong><br>
+                        <small>Defensible IP</small>
+                    </div>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">🏢</span>
+                    <div>
+                        <strong>Local-First</strong><br>
+                        <small>Your Data Stays Yours</small>
+                    </div>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">🧠</span>
+                    <div>
+                        <strong>Progressive Learning</strong><br>
+                        <small>Gets Smarter Daily</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Code Demo -->
-<div class="code-demo">
-<div class="code-header">
-<div class="code-dot"></div>
-<div class="code-dot"></div>
-<div class="code-dot"></div>
-</div>
-<div class="code-content">
-<div class="code-section">
-<div class="code-label">❌ Your Stack Trace</div>
-<pre><code>TypeError: Cannot read property 'user' of undefined
-    at UserProfile.render (UserProfile.js:45:23)
-    at finishClassComponent (react-dom.js:17485:31)
-    at updateClassComponent (react-dom.js:17435:24)</code></pre>
-</div>
-<div class="code-section">
-<div class="code-label">✅ Generated Test</div>
-<pre><code>test('should handle undefined user data', async ({ page }) => {
-  await page.goto('/profile');
-  await page.waitForSelector('[data-testid="user-info"]');
-  
-  const userDataLoaded = await page.evaluate(() => {
-    return window.currentUser?.user !== undefined;
-  });
-  expect(userDataLoaded).toBeTruthy();
-});</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+    <!-- Patent Banner -->
+    <section class="patent-banner container">
+        <h3>🛡️ Protected by 8 Filed Patents</h3>
+        <p>We've patented the core mechanisms of learning-based test generation, creating a defensive moat around automated testing innovation.</p>
+    </section>
 
-<!-- Value Props Section -->
-<section class="stats">
-<div class="container">
-<div class="stats-grid">
-<div class="stat-item">
-<h3>⚡</h3>
-<p>Lightning Fast</p>
-</div>
-<div class="stat-item">
-<h3>🔒</h3>
-<p>100% Private</p>
-</div>
-<div class="stat-item">
-<h3>🧠</h3>
-<p>AI-Powered</p>
-</div>
-<div class="stat-item">
-<h3>🎯</h3>
-<p>Patent Pending</p>
-</div>
-</div>
-</div>
-</section>
+    <!-- Problem/Solution -->
+    <section class="problem-solution">
+        <div class="container">
+            <div class="section-header">
+                <h2>Current Testing vs. QA Brain</h2>
+                <p>Stop starting from zero. Start building on intelligence.</p>
+            </div>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card problem-card">
+                    <h3>❌ Current Testing Reality</h3>
+                    <div class="comparison-item">
+                        <span class="icon">⚠️</span>
+                        <span>Every test starts from scratch</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="icon">⚠️</span>
+                        <span>Selectors break constantly</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="icon">⚠️</span>
+                        <span>No knowledge sharing between tests</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="icon">⚠️</span>
+                        <span>Manual test writing takes hours</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="icon">⚠️</span>
+                        <span>30-60 min setup per system</span>
+                    </div>
+                </div>
+                
+                <div class="comparison-card solution-card">
+                    <h3>✅ QA Brain Solution</h3>
+                    <div class="comparison-item">
+                        <span class="icon">✨</span>
+                        <span>Learns from every exploration</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="icon">✨</span>
+                        <span>Self-healing pattern detection</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="icon">✨</span>
+                        <span>Team-wide intelligence sharing</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="icon">✨</span>
+                        <span>Automatic generation from tickets</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="icon">✨</span>
+                        <span>Zero-configuration discovery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Features Section -->
-<section class="features" id="features">
-<div class="container">
-<h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Enterprise-Ready Features</h2>
-<p style="text-align: center; color: var(--gray); font-size: 1.25rem;">Everything you need to 10x your QA productivity</p>
-<div class="features-grid">
-<div class="feature-card fade-in">
-<div class="feature-icon">🎯</div>
-<h3>Enhanced Replay™</h3>
-<p>Our patent-pending technology converts production errors into comprehensive test suites automatically.</p>
-</div>
-<div class="feature-card fade-in">
-<div class="feature-icon">🧠</div>
-<h3>AI Memory</h3>
-<p>QA Brain learns from every test, building a knowledge base of your application's patterns.</p>
-</div>
-<div class="feature-card fade-in">
-<div class="feature-icon">🔒</div>
-<h3>Your Choice, Your Control</h3>
-<p>Use Claude, GPT-4, or run 100% local with Llama. Deploy on-premise or in your cloud. Your code, your rules.</p>
-</div>
-<div class="feature-card fade-in">
-<div class="feature-icon">⚡</div>
-<h3>Multi-Model Architecture</h3>
-<p>Choose the best model for each task. Use GPT-4 for complex reasoning, Claude for code generation, or local models for sensitive data.</p>
-</div>
-<div class="feature-card fade-in">
-<div class="feature-icon">🔧</div>
-<h3>Self-Healing</h3>
-<p>Tests automatically adapt to UI changes, reducing maintenance overhead.</p>
-</div>
-<div class="feature-card fade-in">
-<div class="feature-icon">📊</div>
-<h3>Analytics</h3>
-<p>Track test generation metrics, success rates, and team productivity gains.</p>
-</div>
-</div>
-</div>
-</section>
+    <!-- Learning Loop -->
+    <section class="learning-loop">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Patented Learning Loop</h2>
+                <p>Every interaction makes future tests smarter</p>
+            </div>
+            
+            <div class="loop-diagram">
+                <div class="loop-steps">
+                    <div class="loop-step">
+                        <h4>Explore</h4>
+                        <p>Autonomous discovery</p>
+                    </div>
+                    <div class="loop-step">
+                        <h4>Extract</h4>
+                        <p>Pattern detection</p>
+                    </div>
+                    <div class="loop-step">
+                        <h4>Generate</h4>
+                        <p>Smart test creation</p>
+                    </div>
+                    <div class="loop-step">
+                        <h4>Learn</h4>
+                        <p>Continuous improvement</p>
+                    </div>
+                </div>
+                <p style="color: var(--primary); font-weight: 600;">↺ Continuous Intelligence Accumulation</p>
+            </div>
+        </div>
+    </section>
 
-<!-- Deployment Flexibility Section -->
-<section class="features" style="background: var(--light-gray);">
-<div class="container">
-<h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Deploy Your Way</h2>
-<p style="text-align: center; color: var(--gray); font-size: 1.25rem; margin-bottom: 3rem;">Maximum flexibility for your infrastructure and compliance needs</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-<div style="text-align: center;">
-<h3 style="font-size: 1.5rem; margin-bottom: 1rem;">☁️ Cloud Providers</h3>
-<ul style="list-style: none; padding: 0; color: var(--gray);">
-<li>AWS / Azure / GCP</li>
-<li>Your private cloud</li>
-<li>On-premise servers</li>
-<li>Hybrid deployments</li>
-</ul>
-</div>
-<div style="text-align: center;">
-<h3 style="font-size: 1.5rem; margin-bottom: 1rem;">🤖 AI Models</h3>
-<ul style="list-style: none; padding: 0; color: var(--gray);">
-<li>OpenAI GPT-4</li>
-<li>Anthropic Claude</li>
-<li>Local Llama 2/3</li>
-<li>Custom fine-tuned</li>
-</ul>
-</div>
-<div style="text-align: center;">
-<h3 style="font-size: 1.5rem; margin-bottom: 1rem;">🔧 Integrations</h3>
-<ul style="list-style: none; padding: 0; color: var(--gray);">
-<li>VS Code / Cursor</li>
-<li>CI/CD pipelines</li>
-<li>Jira / Linear</li>
-<li>GitHub / GitLab</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Enterprise-Grade Features</h2>
+                <p>Built for scale, designed for teams</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Zero-Configuration Setup</h3>
+                    <p>Works instantly with Jira, GitHub Issues, Azure DevOps. No setup required.</p>
+                    <span class="patent-tag">Patent #63/865,468</span>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Multi-Source Learning</h3>
+                    <p>Learns from exploration, execution, and manual tests with weighted confidence.</p>
+                    <span class="patent-tag">Patent #63/865,472</span>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Progressive Intelligence</h3>
+                    <p>Every test run makes future tests smarter. Knowledge compounds over time.</p>
+                    <span class="patent-tag">Patent #63/859,841</span>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Error-to-Test Generation</h3>
+                    <p>Automatically converts stack traces and errors into regression tests.</p>
+                    <span class="patent-tag">Patent #63/860,827</span>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Objective-Based Exploration</h3>
+                    <p>Multi-phase discovery that goes beyond initial objectives for comprehensive coverage.</p>
+                    <span class="patent-tag">Patent #63/860,053</span>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Test Decomposition</h3>
+                    <p>Automatically breaks complex requirements into atomic, maintainable tests.</p>
+                    <span class="patent-tag">Patent #63/860,688</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Comparison Table Section -->
-<section class="features">
-<div class="container">
-<h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Why QA Brain?</h2>
-<p style="text-align: center; color: var(--gray); font-size: 1.25rem; margin-bottom: 3rem;">See how we stack up against the alternatives</p>
-<div style="overflow-x: auto;">
-<table style="width: 100%; border-collapse: collapse; background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-<thead>
-<tr style="background: var(--gradient); color: white;">
-<th style="padding: 1.5rem; text-align: left; font-weight: 600;">Feature</th>
-<th style="padding: 1.5rem; text-align: center; font-weight: 600;">QA Brain</th>
-<th style="padding: 1.5rem; text-align: center; font-weight: 600;">Manual Testing</th>
-<th style="padding: 1.5rem; text-align: center; font-weight: 600;">Other AI Tools</th>
-</tr>
-</thead>
-<tbody>
-<tr style="border-bottom: 1px solid var(--light-gray);">
-<td style="padding: 1.5rem; font-weight: 500;">Stack trace → Test</td>
-<td style="padding: 1.5rem; text-align: center;">✅ 30 seconds</td>
-<td style="padding: 1.5rem; text-align: center;">❌ 3-4 hours</td>
-<td style="padding: 1.5rem; text-align: center;">⚠️ Limited</td>
-</tr>
-<tr style="border-bottom: 1px solid var(--light-gray); background: #f9fafb;">
-<td style="padding: 1.5rem; font-weight: 500;">Model flexibility</td>
-<td style="padding: 1.5rem; text-align: center;">✅ Any model</td>
-<td style="padding: 1.5rem; text-align: center;">❌ N/A</td>
-<td style="padding: 1.5rem; text-align: center;">❌ Locked in</td>
-</tr>
-<tr style="border-bottom: 1px solid var(--light-gray);">
-<td style="padding: 1.5rem; font-weight: 500;">On-premise option</td>
-<td style="padding: 1.5rem; text-align: center;">✅ Full support</td>
-<td style="padding: 1.5rem; text-align: center;">✅ Yes</td>
-<td style="padding: 1.5rem; text-align: center;">❌ Cloud only</td>
-</tr>
-<tr style="border-bottom: 1px solid var(--light-gray); background: #f9fafb;">
-<td style="padding: 1.5rem; font-weight: 500;">Learning system</td>
-<td style="padding: 1.5rem; text-align: center;">✅ Pattern memory</td>
-<td style="padding: 1.5rem; text-align: center;">❌ Manual</td>
-<td style="padding: 1.5rem; text-align: center;">❌ No memory</td>
-</tr>
-<tr style="border-bottom: 1px solid var(--light-gray);">
-<td style="padding: 1.5rem; font-weight: 500;">IDE integration</td>
-<td style="padding: 1.5rem; text-align: center;">✅ VS Code/Cursor</td>
-<td style="padding: 1.5rem; text-align: center;">⚠️ Basic</td>
-<td style="padding: 1.5rem; text-align: center;">⚠️ Limited</td>
-</tr>
-<tr>
-<td style="padding: 1.5rem; font-weight: 500;">Cost per test</td>
-<td style="padding: 1.5rem; text-align: center;">✅ ~$0.10</td>
-<td style="padding: 1.5rem; text-align: center;">❌ ~$50</td>
-<td style="padding: 1.5rem; text-align: center;">⚠️ ~$5</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
+    <!-- Enterprise Section -->
+    <section class="enterprise" id="enterprise">
+        <div class="container">
+            <div class="section-header">
+                <h2>Built for Enterprise Security</h2>
+                <p>Your data never leaves your network</p>
+            </div>
+            
+            <div class="security-grid">
+                <div class="security-item">
+                    <h4>100% Local Processing</h4>
+                    <p>All AI runs on your infrastructure</p>
+                </div>
+                <div class="security-item">
+                    <h4>Air-Gap Compatible</h4>
+                    <p>Works without internet connection</p>
+                </div>
+                <div class="security-item">
+                    <h4>SOC2 Type II Ready</h4>
+                    <p>Audit-friendly architecture</p>
+                </div>
+                <div class="security-item">
+                    <h4>Zero Trust Architecture</h4>
+                    <p>No external dependencies</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Security Badges Section -->
-<section class="features" style="background: var(--light-gray); padding: 3rem 0;">
-<div class="container">
-<h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 2rem; color: var(--gray);">Enterprise-Ready Security & Compliance</h3>
-<div style="display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap;">
-<div style="text-align: center;">
-<div style="font-size: 3rem; margin-bottom: 0.5rem;">🔒</div>
-<p style="font-weight: 600; margin: 0;">SOC2 Ready</p>
-<p style="font-size: 0.875rem; color: var(--gray); margin: 0;">Architecture</p>
-</div>
-<div style="text-align: center;">
-<div style="font-size: 3rem; margin-bottom: 0.5rem;">🛡️</div>
-<p style="font-weight: 600; margin: 0;">GDPR</p>
-<p style="font-size: 0.875rem; color: var(--gray); margin: 0;">Compliant</p>
-</div>
-<div style="text-align: center;">
-<div style="font-size: 3rem; margin-bottom: 0.5rem;">🔐</div>
-<p style="font-weight: 600; margin: 0;">Zero Trust</p>
-<p style="font-size: 0.875rem; color: var(--gray); margin: 0;">Security</p>
-</div>
-<div style="text-align: center;">
-<div style="font-size: 3rem; margin-bottom: 0.5rem;">🏛️</div>
-<p style="font-weight: 600; margin: 0;">Air Gap</p>
-<p style="font-size: 0.875rem; color: var(--gray); margin: 0;">Deployable</p>
-</div>
-<div style="text-align: center;">
-<div style="font-size: 3rem; margin-bottom: 0.5rem;">🔑</div>
-<p style="font-weight: 600; margin: 0;">SSO/SAML</p>
-<p style="font-size: 0.875rem; color: var(--gray); margin: 0;">Support</p>
-</div>
-</div>
-</div>
-</section>
+    <!-- ROI Calculator -->
+    <section class="roi-calculator" id="roi">
+        <div class="container">
+            <div class="section-header">
+                <h2>Calculate Your ROI</h2>
+                <p>See how much QA Brain saves your organization</p>
+            </div>
+            
+            <div class="calculator-box">
+                <div class="calc-input">
+                    <label>Number of Engineers:</label>
+                    <input type="number" id="engineers" value="10" min="1">
+                </div>
+                <div class="calc-input">
+                    <label>Hours saved per engineer/week:</label>
+                    <input type="number" id="hours" value="5" min="1">
+                </div>
+                <div class="calc-input">
+                    <label>Average hourly rate ($):</label>
+                    <input type="number" id="rate" value="150" min="50">
+                </div>
+                <div class="calc-input">
+                    <label>Bugs prevented per month:</label>
+                    <input type="number" id="bugs" value="5" min="0">
+                </div>
+                <div class="calc-input">
+                    <label>Average cost per bug ($):</label>
+                    <input type="number" id="bugCost" value="10000" min="1000">
+                </div>
+                
+                <div class="calc-result">
+                    <p style="text-align: center; color: var(--gray-light);">Annual ROI:</p>
+                    <div class="calc-total" id="totalROI">$1,068,000</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- ROI Calculator -->
-<section class="roi-section">
-<div class="container">
-<h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Calculate Your ROI</h2>
-<p style="text-align: center; color: var(--gray); font-size: 1.25rem;">See how much QA Brain can save your team</p>
-<div class="roi-calculator">
-<div class="roi-input">
-<label for="qa-count">Number of QA Engineers</label>
-<input id="qa-count" max="100" min="1" type="number" value="5"/>
-</div>
-<div class="roi-input">
-<label for="avg-salary">Average QA Salary ($)</label>
-<input id="avg-salary" max="300000" min="50000" type="number" value="120000"/>
-</div>
-<div class="roi-input">
-<label for="tests-month">Tests Written Per Month</label>
-<input id="tests-month" max="1000" min="10" type="number" value="200"/>
-</div>
-<div class="roi-result">
-<h3 id="monthly-savings">$4,615</h3>
-<p>Monthly Savings</p>
-<h3 id="annual-roi" style="font-size: 3rem; margin-top: 1rem;">$55,385</h3>
-<p>Annual ROI</p>
-</div>
-</div>
-</div>
-</section>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ready to Transform Your Testing?</h2>
+                <p>Join the future of automated testing</p>
+            </div>
+            
+            <div class="cta-buttons">
+                <div class="cta-card">
+                    <h3>For Enterprises</h3>
+                    <p>See how QA Brain can transform your testing workflow</p>
+                    <a href="#" class="btn-primary">Book Demo</a>
+                </div>
+                <div class="cta-card">
+                    <h3>For Investors</h3>
+                    <p>Learn about our patents and technology</p>
+                    <a href="pitch-deck.html" class="btn-primary">View Pitch Deck</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- CTA Section -->
-<section class="cta" id="demo">
-<div class="container">
-<h2>Ready to Transform Your QA?</h2>
-<p>Be among the first to experience the future of test automation</p>
-<div class="hero-cta">
-<a class="btn btn-secondary" href="https://calendly.com/qa-brain" style="background: white; color: var(--primary);">Book a Demo</a>
-<a class="btn btn-secondary" href="mailto:neil@qa-brain.com" style="background: transparent; color: white; border-color: white;">Contact Sales</a>
-</div>
-</div>
-</section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-badges">
+                <span>🛡️ 8 Patents Filed</span>
+                <span>🏢 Enterprise-Ready</span>
+                <span>🔐 SOC2 Type II (pending)</span>
+                <span>🚀 Local-First Architecture</span>
+            </div>
+            <p style="color: var(--gray-light);">© 2025 QA Brain LLC. Protected by filed patents.</p>
+        </div>
+    </footer>
 
-<!-- Footer -->
-<footer>
-<div class="container">
-<div class="footer-links">
-<a href="#">Privacy</a>
-<a href="#">Terms</a>
-<a href="https://github.com/neej1979/qa-brain">GitHub</a>
-<a href="https://x.com/qabrainAI">X (Twitter)</a>
-<a href="mailto:neil@qa-brain.com">Contact</a>
-</div>
-<p>© 2025 QA Brain. Patent Pending. All rights reserved.</p>
-</div>
-</footer>
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
 
-<script>
         // ROI Calculator
         function calculateROI() {
-            const qaCount = parseInt(document.getElementById('qa-count').value);
-            const avgSalary = parseInt(document.getElementById('avg-salary').value);
-            const testsMonth = parseInt(document.getElementById('tests-month').value);
+            const engineers = parseFloat(document.getElementById('engineers').value) || 10;
+            const hours = parseFloat(document.getElementById('hours').value) || 5;
+            const rate = parseFloat(document.getElementById('rate').value) || 150;
+            const bugs = parseFloat(document.getElementById('bugs').value) || 5;
+            const bugCost = parseFloat(document.getElementById('bugCost').value) || 10000;
             
-            const hoursPerTest = 0.5;
-            const timeSaved = 0.8; // 80% faster
-            const hoursPerYear = 2080;
+            const weeklySavings = engineers * hours * rate;
+            const annualTimeSavings = weeklySavings * 52;
+            const annualBugSavings = bugs * bugCost * 12;
+            const totalROI = annualTimeSavings + annualBugSavings;
             
-            // Calculate hourly rate based on average salary
-            const hourlyRate = avgSalary / hoursPerYear;
-            
-            // Calculate hours saved per month across entire team
-            const hoursSavedPerMonth = (testsMonth * hoursPerTest * timeSaved) * qaCount;
-            
-            // Calculate monthly and annual savings
-            const monthlySavings = hoursSavedPerMonth * hourlyRate;
-            const annualROI = monthlySavings * 12;
-            
-            document.getElementById('monthly-savings').textContent = `${monthlySavings.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
-            document.getElementById('annual-roi').textContent = `${annualROI.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            document.getElementById('totalROI').textContent = '$' + totalROI.toLocaleString();
         }
-        
-        // Add event listeners
-        document.getElementById('qa-count').addEventListener('input', calculateROI);
-        document.getElementById('avg-salary').addEventListener('input', calculateROI);
-        document.getElementById('tests-month').addEventListener('input', calculateROI);
-        
-        // Fade in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+
+        // Add event listeners to all calculator inputs
+        document.querySelectorAll('.calc-input input').forEach(input => {
+            input.addEventListener('input', calculateROI);
         });
-        
-        // Smooth scroll
+
+        // Initial calculation
+        calculateROI();
+
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
-        
-        // Header scroll effect
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > 100) {
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            } else {
-                header.style.boxShadow = 'none';
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+                menu.classList.remove('active');
             }
         });
     </script>
