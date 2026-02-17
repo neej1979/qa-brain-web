@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QA Brain — AI Test Automation That Learns</title>
-    <meta name="description" content="The first test automation platform that learns from every interaction. 13 patents filed. 99% selector confidence. Built for enterprise.">
+    <meta name="description" content="The first test automation platform that learns from every interaction. Explores real apps, captures element fingerprints, generates Playwright tests. Local-first, patent-protected, built for enterprise.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -649,7 +649,7 @@
     <div class="container">
         <div class="hero-badge fade-in">
             <span class="dot"></span>
-            13 provisional patents filed
+            Local-first · Works offline · Production-ready
         </div>
         <h1 class="fade-in">
             Test automation<br>
@@ -673,8 +673,8 @@
             <div class="metric-label">Error→Test</div>
         </div>
         <div class="metric">
-            <div class="metric-value">13</div>
-            <div class="metric-label">Patents Filed</div>
+            <div class="metric-value">5,800+</div>
+            <div class="metric-label">Tests Passing</div>
         </div>
         <div class="metric">
             <div class="metric-value">170K</div>
@@ -891,7 +891,7 @@
             <div class="arch-feature reveal">
                 <h3>Self-Healing</h3>
                 <p>Three-tier selector repair: fingerprint matching (7 dimensions), fuzzy attribute matching, LLM-assisted fallback. Automatic, transparent.</p>
-                <span class="arch-tag">Patent #4 · 0.7 threshold</span>
+                <span class="arch-tag">Patent #13 · 3-tier fallback</span>
             </div>
             <div class="arch-feature reveal">
                 <h3>Modular Agents</h3>
@@ -962,10 +962,9 @@
                 entry.target.classList.add('visible');
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.1 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
