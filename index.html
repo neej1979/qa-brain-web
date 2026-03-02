@@ -10,22 +10,23 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0b0d;
-            --bg-secondary: #111318;
-            --bg-card: #15171c;
-            --bg-card-hover: #1a1d24;
-            --border: #1e2028;
-            --border-accent: #2a2d38;
-            --text-primary: #e8e9ed;
-            --text-secondary: #8b8d98;
-            --text-muted: #5c5e6a;
-            --accent: #3b82f6;
-            --accent-dim: #2563eb;
-            --accent-glow: rgba(59, 130, 246, 0.12);
-            --green: #22c55e;
-            --green-dim: rgba(34, 197, 94, 0.12);
-            --amber: #f59e0b;
-            --amber-dim: rgba(245, 158, 11, 0.12);
+            --bg-primary: #ffffff;
+            --bg-secondary: #f6f8fa;
+            --bg-card: #f6f8fa;
+            --bg-card-hover: #eef1f5;
+            --border: #d0d7de;
+            --border-accent: #b0bec8;
+            --text-primary: #1f2328;
+            --text-secondary: #656d76;
+            --text-muted: #8c959f;
+            --accent: #0969a2;
+            --accent-dim: #075787;
+            --accent-glow: rgba(9, 105, 162, 0.10);
+            --navy: #0d2340;
+            --green: #1a7f37;
+            --green-dim: rgba(26, 127, 55, 0.10);
+            --amber: #9a6700;
+            --amber-dim: rgba(154, 103, 0, 0.10);
             --font-display: 'Outfit', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
         }
@@ -52,7 +53,7 @@
             content: '';
             position: fixed;
             inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.015'/%3E%3C/svg%3E");
             pointer-events: none;
             z-index: 9999;
         }
@@ -66,12 +67,12 @@
         /* ── Nav ── */
         nav {
             position: fixed;
-            top: 0;
+            top: 4px;
             left: 0;
             right: 0;
             z-index: 100;
             padding: 16px 0;
-            background: rgba(10, 11, 13, 0.85);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
@@ -86,7 +87,7 @@
             font-family: var(--font-mono);
             font-size: 15px;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--navy);
             letter-spacing: -0.02em;
         }
 
@@ -127,7 +128,7 @@
 
         /* ── Hero ── */
         .hero {
-            padding: 180px 0 100px;
+            padding: 188px 0 100px;
             position: relative;
         }
 
@@ -139,7 +140,7 @@
             transform: translateX(-50%);
             width: 600px;
             height: 400px;
-            background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+            background: radial-gradient(ellipse, rgba(9, 105, 162, 0.08) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -148,12 +149,12 @@
             align-items: center;
             gap: 8px;
             padding: 6px 14px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+            background: rgba(9, 105, 162, 0.07);
+            border: 1px solid rgba(9, 105, 162, 0.2);
             border-radius: 100px;
             font-size: 12px;
             font-weight: 500;
-            color: var(--text-secondary);
+            color: var(--accent);
             margin-bottom: 32px;
             font-family: var(--font-mono);
         }
@@ -196,9 +197,7 @@
         .metrics {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            background: var(--border);
-            border: 1px solid var(--border);
+            gap: 12px;
             border-radius: 12px;
             overflow: hidden;
             margin-bottom: 120px;
@@ -206,18 +205,20 @@
 
         .metric {
             background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
             padding: 28px 24px;
             text-align: center;
-            transition: background 0.2s;
+            transition: all 0.2s;
         }
 
-        .metric:hover { background: var(--bg-card-hover); }
+        .metric:hover { background: var(--bg-card-hover); box-shadow: 0 2px 8px rgba(9,105,162,0.08); }
 
         .metric-value {
             font-family: var(--font-mono);
             font-size: 28px;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--accent);
             letter-spacing: -0.02em;
         }
 
@@ -236,6 +237,10 @@
         /* ── Sections ── */
         section {
             padding: 80px 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-secondary);
         }
 
         .section-label {
@@ -312,7 +317,7 @@
             color: var(--text-muted);
             text-align: center;
             padding: 16px;
-            border: 1px dashed var(--border);
+            border: 1px dashed var(--border-accent);
             border-radius: 8px;
         }
 
@@ -320,8 +325,8 @@
 
         /* ── Terminal demo ── */
         .terminal {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
+            background: #0d1117;
+            border: 1px solid #30363d;
             border-radius: 10px;
             overflow: hidden;
             margin: 48px 0;
@@ -335,90 +340,36 @@
             align-items: center;
             gap: 8px;
             padding: 12px 16px;
-            background: var(--bg-card);
-            border-bottom: 1px solid var(--border);
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
         }
 
         .terminal-dot {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: var(--border-accent);
+            background: #30363d;
         }
 
         .terminal-title {
             font-size: 11px;
-            color: var(--text-muted);
+            color: #8b949e;
             margin-left: 8px;
         }
 
         .terminal-body {
             padding: 20px 24px;
             overflow-x: auto;
+            color: #c9d1d9;
         }
 
-        .terminal-body .prompt { color: var(--accent); }
-        .terminal-body .cmd { color: var(--text-primary); }
-        .terminal-body .output { color: var(--text-secondary); }
-        .terminal-body .success { color: var(--green); }
-        .terminal-body .dim { color: var(--text-muted); }
+        .terminal-body .prompt { color: #58a6ff; }
+        .terminal-body .cmd { color: #e6edf3; }
+        .terminal-body .output { color: #8b949e; }
+        .terminal-body .success { color: #3fb950; }
+        .terminal-body .dim { color: #484f58; }
 
-        /* ── Patents ── */
-        .patent-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
 
-        .patent {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            padding: 18px 20px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            transition: border-color 0.2s;
-        }
-
-        .patent:hover { border-color: var(--border-accent); }
-
-        .patent-num {
-            font-family: var(--font-mono);
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--accent);
-            background: var(--accent-glow);
-            padding: 4px 8px;
-            border-radius: 4px;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .patent-title {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-primary);
-            line-height: 1.5;
-        }
-
-        .patent-id {
-            font-family: var(--font-mono);
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-
-        .patent-note {
-            margin-top: 24px;
-            padding: 16px 20px;
-            background: var(--amber-dim);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-            border-radius: 8px;
-            font-size: 13px;
-            color: var(--amber);
-            font-weight: 500;
-        }
 
         /* ── Architecture ── */
         .arch-features {
@@ -451,8 +402,9 @@
             font-family: var(--font-mono);
             font-size: 10px;
             font-weight: 500;
-            color: var(--text-muted);
-            background: var(--bg-secondary);
+            color: var(--accent);
+            background: var(--accent-glow);
+            border: 1px solid rgba(9, 105, 162, 0.18);
             padding: 3px 8px;
             border-radius: 4px;
             margin-top: 12px;
@@ -502,10 +454,10 @@
             font-family: var(--font-mono);
             font-size: 11px;
             font-weight: 500;
-            color: var(--text-muted);
+            color: var(--accent);
             padding: 5px 12px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
+            background: var(--accent-glow);
+            border: 1px solid rgba(9, 105, 162, 0.2);
             border-radius: 4px;
         }
 
@@ -529,7 +481,7 @@
             align-items: center;
             gap: 8px;
             padding: 14px 28px;
-            background: var(--accent);
+            background: var(--navy);
             color: white;
             font-family: var(--font-display);
             font-size: 14px;
@@ -543,9 +495,9 @@
         }
 
         .cta-btn:hover {
-            background: var(--accent-dim);
+            background: var(--accent);
             transform: translateY(-1px);
-            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.25);
+            box-shadow: 0 8px 30px rgba(9, 105, 162, 0.25);
         }
 
         .cta-sub {
@@ -615,7 +567,6 @@
         @media (max-width: 768px) {
             .metrics { grid-template-columns: repeat(2, 1fr); }
             .loop-grid { grid-template-columns: repeat(2, 1fr); }
-            .patent-grid { grid-template-columns: 1fr; }
             .arch-features { grid-template-columns: 1fr; }
             .founder-card { flex-direction: column; gap: 24px; padding: 24px; }
             .nav-links { display: none; }
@@ -629,6 +580,7 @@
     </style>
 </head>
 <body>
+<div style="background:#0d2340;height:4px;width:100%;position:fixed;top:0;left:0;z-index:200;"></div>
 
 <!-- Nav -->
 <nav>
@@ -636,7 +588,6 @@
         <div class="nav-logo">qa<span>_</span>brain</div>
         <ul class="nav-links">
             <li><a href="#how">How It Works</a></li>
-            <li><a href="#patents">Patents</a></li>
             <li><a href="#architecture">Architecture</a></li>
             <li><a href="#founder">Founder</a></li>
             <li><a href="#contact" class="nav-contact">Get in Touch</a></li>
@@ -669,15 +620,15 @@
             <div class="metric-label">Selector Confidence</div>
         </div>
         <div class="metric">
-            <div class="metric-value">&lt;20ms</div>
+            <div class="metric-value">&lt;1ms</div>
             <div class="metric-label">Error→Test</div>
         </div>
         <div class="metric">
-            <div class="metric-value">5,800+</div>
+            <div class="metric-value">6,489+</div>
             <div class="metric-label">Tests Passing</div>
         </div>
         <div class="metric">
-            <div class="metric-value">170K</div>
+            <div class="metric-value">~190K</div>
             <div class="metric-label">Lines of Code</div>
         </div>
     </div>
@@ -749,114 +700,6 @@
     </div>
 </section>
 
-<!-- Patents -->
-<section id="patents">
-    <div class="container">
-        <div class="section-label reveal">Intellectual Property</div>
-        <h2 class="reveal">13 provisional patents filed</h2>
-        <p class="section-desc reveal">
-            Covering the core mechanisms of learning-based test generation, self-healing, and progressive intelligence.
-        </p>
-
-        <div class="patent-grid">
-            <div class="patent reveal">
-                <span class="patent-num">#1</span>
-                <div>
-                    <div class="patent-title">Closed-Loop Autonomous Test Intelligence System</div>
-                    <div class="patent-id">63/940,252</div>
-                </div>
-            </div>
-            <div class="patent reveal">
-                <span class="patent-num">#2</span>
-                <div>
-                    <div class="patent-title">Multi-Source Governance and Remediation for AI-Generated Tests</div>
-                    <div class="patent-id">63/872,024</div>
-                </div>
-            </div>
-            <div class="patent reveal">
-                <span class="patent-num">#3</span>
-                <div>
-                    <div class="patent-title">Progressive Test Intelligence Using Local Memory</div>
-                    <div class="patent-id">63/859,841</div>
-                </div>
-            </div>
-            <div class="patent reveal">
-                <span class="patent-num">#4</span>
-                <div>
-                    <div class="patent-title">Bayesian Confidence Scoring for Learned Selectors</div>
-                    <div class="patent-id">63/929,028</div>
-                </div>
-            </div>
-            <div class="patent reveal">
-                <span class="patent-num">#5</span>
-                <div>
-                    <div class="patent-title">Automated Test Generation from Error Analysis</div>
-                    <div class="patent-id">63/858,068</div>
-                </div>
-            </div>
-            <div class="patent reveal">
-                <span class="patent-num">#6</span>
-                <div>
-                    <div class="patent-title">Reconstructing User Action Sequences from Error Reports</div>
-                    <div class="patent-id">63/860,827</div>
-                </div>
-            </div>
-            <div class="patent reveal">
-                <span class="patent-num">#7</span>
-                <div>
-                    <div class="patent-title">Origin-Aware Test Quality Assessment</div>
-                    <div class="patent-id">63/860,778</div>
-                </div>
-            </div>
-            <div class="patent reveal">
-                <span class="patent-num">#8</span>
-                <div>
-                    <div class="patent-title">Objective-Initiated Exhaustive Exploration</div>
-                    <div class="patent-id">63/860,053</div>
-                </div>
-            </div>
-            <div class="patent reveal">
-                <span class="patent-num">#9</span>
-                <div>
-                    <div class="patent-title">Automated Test Decomposition with Confidence-Based Selection</div>
-                    <div class="patent-id">63/860,688</div>
-                </div>
-            </div>
-            <div class="patent reveal">
-                <span class="patent-num">#10</span>
-                <div>
-                    <div class="patent-title">Multi-Source Pattern Learning for Test Automation</div>
-                    <div class="patent-id">63/865,472</div>
-                </div>
-            </div>
-            <div class="patent reveal">
-                <span class="patent-num">#11</span>
-                <div>
-                    <div class="patent-title">Human Edit Tracking and Feedback-Informed Generation System with Cross-Source Conflict Detection</div>
-                    <div class="patent-id">63/984,395</div>
-                </div>
-            </div>
-            <div class="patent reveal">
-                <span class="patent-num">#12</span>
-                <div>
-                    <div class="patent-title">Automatic Test Generation from Ticket Systems</div>
-                    <div class="patent-id">63/865,468</div>
-                </div>
-            </div>
-            <div class="patent reveal">
-                <span class="patent-num">#13</span>
-                <div>
-                    <div class="patent-title">Multi-Dimensional Element Fingerprinting for Autonomous Test Selector Repair</div>
-                    <div class="patent-id">63/984,402</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="patent-note reveal">
-            Provisional patents expire August 2026. Strategic discussions welcome before conversion deadline.
-        </div>
-    </div>
-</section>
 
 <!-- Architecture -->
 <section id="architecture">
@@ -896,7 +739,7 @@
             <div class="arch-feature reveal">
                 <h3>Modular Agents</h3>
                 <p>Explorer, Generator, Planner, Healer, Governance — each agent is independent and swappable. No monolithic chains.</p>
-                <span class="arch-tag">10 agents · 5 brain regions</span>
+                <span class="arch-tag">15 agents · 5 brain regions</span>
             </div>
         </div>
     </div>
@@ -938,8 +781,8 @@
         <p class="section-desc reveal">
             5-minute live demo on any website. No slides, no setup, just the real system.
         </p>
-        <a href="mailto:neil@qa-brain.com" class="cta-btn reveal">
-            neil@qa-brain.com →
+        <a href="/cdn-cgi/l/email-protection#543a313d38142535793626353d3a7a373b39" class="cta-btn reveal">
+            <span class="__cf_email__" data-cfemail="036d666a6f4372622e6171626a6d2d606c6e">[email&#160;protected]</span> →
         </a>
         <p class="cta-sub reveal">Or connect on <a href="https://www.linkedin.com/in/neilduggan/" style="color: var(--accent); text-decoration: none;">LinkedIn</a></p>
     </div>
